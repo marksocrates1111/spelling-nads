@@ -291,7 +291,8 @@ export default function MultiplayerPage() {
 
   // Shared state for the game lobby
   const [settings, setSettings] = useStateTogether<GameSettings | null>('game-settings', null);
-  const [players, setPlayers] = useStateTogether<Player[]>('players', []);
+  // FIX: Removed unused 'players' state variable from this component scope.
+  const [, setPlayers] = useStateTogether<Player[]>('players', []);
 
   // Effect to manage screen transitions based on session state
   useEffect(() => {
@@ -315,13 +316,16 @@ export default function MultiplayerPage() {
             if (existingPlayerMap.has(user.userId)) {
                 return existingPlayerMap.get(user.userId)!;
             }
-            return {
+            // FIX: Explicitly define the new player object as type Player
+            // to ensure type safety for the 'team' property.
+            const newPlayer: Player = {
                 id: user.userId,
                 nickname: user.nickname,
                 pfpUrl: `/profile-pics/${(Math.floor(Math.random() * 93) + 1)}.png`,
-                team: 'A',
+                team: 'A', // Default team
                 isHost: false,
             };
+            return newPlayer;
         });
 
         if (!newPlayerList.find(p => p.id === hostId) && newPlayerList.length > 0) {
@@ -363,7 +367,6 @@ export default function MultiplayerPage() {
   const handleLeave = useCallback(() => {
     const currentUrl = new URL(window.location.href);
     currentUrl.searchParams.delete('rtName');
-    // Use replaceState to avoid a full page reload and clear the URL param
     window.history.replaceState({}, '', currentUrl);
     
     leaveSession();
@@ -373,9 +376,6 @@ export default function MultiplayerPage() {
   }, [leaveSession, setSettings, setPlayers]);
 
   const handleKickPlayer = useCallback((playerIdToKick: string) => {
-      // This is a placeholder for the kick logic.
-      // In a real implementation, the host would publish an event
-      // that the model would process to remove the player.
       console.log(`Host wants to kick player: ${playerIdToKick}`);
       setPlayers(currentPlayers => currentPlayers.filter(p => p.id !== playerIdToKick));
   }, [setPlayers]);
