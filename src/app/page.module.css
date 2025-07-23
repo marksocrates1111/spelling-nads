@@ -1,0 +1,309 @@
+/* src/app/page.module.css */
+
+/* --- Connect Wallet Screen Styles (Existing & Working) --- */
+.connectScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #020617; /* slate-950 */
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.title {
+  font-size: 6.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  color: #e2e8f0; /* slate-200 */
+  max-width: 80%;
+}
+
+.connectButton {
+  width: 24rem;
+  height: 7.5rem;
+  margin-top: 3rem;
+  background: linear-gradient(to right, #1e293b, #0f172a);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.connectButton:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.3);
+  border-color: rgba(56, 189, 248, 0.5);
+}
+
+.connectButtonText {
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+
+/* --- Main Menu Screen Styles (REVISED) --- */
+
+.mainMenuContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.mainMenuCard {
+    text-align: center;
+    padding: 2rem;
+}
+
+.profileSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem; /* Reduced gap for tighter alignment */
+    margin-bottom: 2rem;
+}
+
+.profileAvatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+    margin-bottom: 0.75rem; /* Added margin below avatar */
+}
+
+.profileName {
+    font-size: 1.875rem; /* 30px */
+    line-height: 2.25rem; /* 36px */
+    font-weight: 700;
+    color: white;
+}
+
+.profileAddress {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    color: #94a3b8; /* slate-400 */
+    font-family: monospace;
+    margin-bottom: 1rem; /* Added margin below address */
+}
+
+.profileButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+.editButton, .disconnectButton {
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.editButton {
+    background-color: #334155; /* slate-700 */
+    color: white;
+}
+.editButton:hover {
+    background-color: #475569; /* slate-600 */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.disconnectButton {
+    background-color: #9f1239; /* rose-800 */
+    color: white;
+}
+.disconnectButton:hover {
+    background-color: #be123c; /* rose-700 */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(190, 18, 60, 0.3);
+}
+
+.gameModeButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem; /* Added margin above buttons */
+}
+
+@media (min-width: 640px) {
+    .gameModeButtons {
+        flex-direction: row;
+    }
+}
+
+.menuButton {
+    display: flex;
+    height: 4.5rem; 
+    width: 12.5rem; 
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-image: linear-gradient(to right, #1e293b, #0f172a);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+@media (min-width: 640px) {
+    .menuButton {
+        width: 14rem;
+    }
+}
+
+.menuButton:hover {
+    transform: translateY(-5px) scale(1.05);
+    border-color: rgba(56, 189, 248, 0.5);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.3);
+}
+
+/* --- Edit Profile Modal Styles (REVISED) --- */
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+}
+
+.modalContent {
+    width: 100%;
+    max-width: 28rem; /* 448px */
+    padding: 2rem;
+    border-radius: 1rem; /* 16px */
+    border: 1px solid #334155; /* slate-700 */
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    background-image: linear-gradient(to bottom right, #1e293b, #0f172a);
+}
+
+.modalHeader {
+    font-size: 1.875rem; /* 30px */
+    font-weight: 700;
+    color: #7dd3fc; /* sky-300 */
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.formLabel {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #94a3b8; /* slate-400 */
+    margin-bottom: 0.25rem;
+    text-align: left;
+}
+
+.formInput {
+    width: 100%;
+    background-color: #0f172a; /* slate-900 */
+    border: 1px solid #475569; /* slate-600 */
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    color: white;
+}
+.formInput:focus {
+    outline: none;
+    border-color: #38bdf8; /* sky-500 */
+    box-shadow: 0 0 0 2px #0ea5e9;
+}
+
+.pfpSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pfpTextContainer {
+    text-align: left;
+}
+
+.pfpSubtext {
+    font-size: 0.75rem; /* 12px */
+    color: #64748b; /* slate-500 */
+}
+
+.pfpPreview {
+    border-radius: 50%;
+    border: 2px solid #38bdf8; /* sky-400 */
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modalButton {
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+.modalButtonPrimary {
+    background-color: #0ea5e9; /* sky-500 */
+    color: white;
+}
+.modalButtonPrimary:hover {
+    background-color: #0284c7; /* sky-600 */
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+}
+
+.modalButtonSecondary {
+    background-color: #334155; /* slate-700 */
+    color: white;
+}
+.modalButtonSecondary:hover {
+    background-color: #475569; /* slate-600 */
+}
+
+.modalButtonDisabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
